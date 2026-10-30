@@ -1,0 +1,7 @@
+{
+  "name": "quacfolio",
+  "private": true,
+  "scripts": {
+    "export": "node scripts/export-content.mjs"
+  }
+}

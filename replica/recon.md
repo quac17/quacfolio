@@ -11,8 +11,8 @@ repo.
 - **Slice:** the home page (hero + list under it), the projects grid, the
   about page, and the one-page portfolio. Blog posts, tags and search are out:
   the owner has no posts yet.
-- **For:** Kiên Duy (GitHub `nkocvodoi`), to show three live projects:
-  Bronze Dawn, Cocain, Sòng Phẳng. Vietnamese first, English and Japanese.
+- **For:** a personal portfolio template. Vietnamese first, English and Japanese.
+  Page copy, skills and projects in this fork are sample placeholders.
 
 ## Sources
 

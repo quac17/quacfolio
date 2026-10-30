@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800">
+  <rect width="1280" height="800" fill="#c2410c"/>
+  <rect x="340" y="100" width="600" height="600" rx="28" fill="#fff7ed"/>
+  <rect x="400" y="170" width="280" height="22" rx="6" fill="#9a3412"/>
+  <rect x="400" y="230" width="460" height="14" rx="5" fill="#fdba74"/>
+  <rect x="400" y="264" width="420" height="14" rx="5" fill="#fdba74"/>
+  <rect x="400" y="298" width="380" height="14" rx="5" fill="#fdba74"/>
+  <text x="640" y="520" text-anchor="middle" fill="#9a3412" font-family="ui-sans-serif, sans-serif" font-size="42" font-weight="700">Sample Notes</text>
+</svg>

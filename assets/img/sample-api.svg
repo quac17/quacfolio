@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800">
+  <rect width="1280" height="800" fill="#4338ca"/>
+  <rect x="160" y="120" width="960" height="560" rx="24" fill="#312e81"/>
+  <text x="220" y="230" fill="#a5b4fc" font-family="ui-monospace, monospace" font-size="32">GET /notes</text>
+  <text x="220" y="300" fill="#e0e7ff" font-family="ui-monospace, monospace" font-size="28">{ "ok": true }</text>
+  <text x="220" y="370" fill="#c7d2fe" font-family="ui-monospace, monospace" font-size="28">status 200</text>
+  <text x="640" y="560" text-anchor="middle" fill="#eef2ff" font-family="ui-sans-serif, sans-serif" font-size="42" font-weight="700">Sample API</text>
+</svg>

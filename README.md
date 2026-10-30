@@ -1,61 +1,69 @@
-# Kiên Duy: trang cá nhân + portfolio
+# Portfolio mẫu
 
-Trang cá nhân của Kiên Duy ([@nkocvodoi](https://github.com/nkocvodoi)), giới thiệu ba
-sản phẩm đang chạy thật:
+Trang cá nhân tĩnh: trang chủ, danh sách dự án, giới thiệu, portfolio một trang và CV in được. Nội dung đang để sẵn là bản mẫu (tên, liên hệ, kỹ năng, dự án). Hãy thay bằng thông tin của bạn trước khi đăng.
 
-- [Bronze Dawn](https://bronzedawn.pages.dev/): game chiến thuật thời gian thực thời đồ đá, chơi trên trình duyệt
-- [Cocain](https://cocain-394370752419.asia-southeast1.run.app/ho-so): cờ caro, cờ tướng, cờ vây, cờ vua online bằng tiếng Việt
-- [Sòng Phẳng](https://songphang-637431531944.asia-southeast1.run.app/): chia tiền nhóm, ít lần chuyển khoản nhất
-
-Trang chạy tại **https://nkocvodoi.github.io/portfolio/**. Có tiếng Việt (mặc định), English và 日本語,
-giao diện sáng và tối.
+Có tiếng Việt (mặc định), English và 日本語. Giao diện sáng và tối.
 
 ## Các trang
 
-| file | là gì |
+| File | Nội dung |
 | --- | --- |
-| `index.html` | trang chủ: lời chào, rồi danh sách dự án ngay bên dưới |
-| `projects.html` | các dự án dạng thẻ có ảnh |
-| `about.html` | giới thiệu |
-| `portfolio.html` | portfolio một trang: dự án nổi bật, kỹ năng, liên hệ |
-| `404.html` | trang không tìm thấy |
-
-Bố cục lấy cảm hứng từ vanhuy.dev và portfolio.vanhuy.dev, làm lại từ đầu với
-[Replica skills](replica/recon.md): chỉ học bố cục và cách dùng, không lấy code, chữ, ảnh hay logo của trang gốc.
+| `index.html` | Trang chủ: lời chào và danh sách dự án |
+| `projects.html` | Dự án dạng thẻ |
+| `about.html` | Giới thiệu |
+| `portfolio.html` | Portfolio một trang: dự án, kỹ năng, liên hệ |
+| `cv.html` | CV khổ A4, in được |
+| `404.html` | Trang không tìm thấy |
 
 ## Sửa nội dung
 
-Mọi chữ trên trang nằm trong một file: [`assets/js/data.js`](assets/js/data.js).
+Mọi chữ cần sửa nằm trong [`assets/js/data.js`](assets/js/data.js): tên, liên hệ, kỹ năng, dự án, câu chữ giao diện và CV.
 
-- `profile`: tên, email, GitHub, câu khẩu hiệu, giới thiệu, kỹ năng.
-- `projects`: mỗi dự án một mục, đủ ba thứ tiếng. Thêm dự án mới thì chép một mục, đổi `url`,
-  `image` (ảnh 1280×800 trong `assets/img/`) và chữ.
-- `strings`: chữ của giao diện (menu, nút, tiêu đề).
+- `profile`: tên, chữ viết tắt trên avatar, email, GitHub, khẩu hiệu, giới thiệu, kỹ năng.
+- `projects`: mỗi dự án một mục, đủ ba thứ tiếng. Thêm dự án thì chép một mục, đổi `url`, `image` và chữ. Ảnh để trong `assets/img/`.
+- `strings`: chữ của giao diện (menu, nút, tiêu đề). `{name}` được thay bằng `profile.name`.
+- `meta`: mô tả dùng cho thẻ tìm kiếm.
+- `heroCode`: khối code trang trí trên trang portfolio.
+- `cv`: số điện thoại, nơi ở, kinh nghiệm, học vấn, dự án in trên CV. Kỹ năng trên CV lấy từ `profile.skills`.
 
-Chỉ có tiếng Việt cũng được: thiếu bản dịch thì trang tự dùng tiếng Việt.
+Thiếu bản dịch thì trang dùng tiếng Việt. `strings` có khóa `pf.intro1` được chèn dạng HTML.
 
-Ảnh đại diện hiện là chữ "KD" (`assets/img/avatar.svg`). Muốn dùng ảnh thật thì bỏ ảnh vào
-`assets/img/avatar.jpg` và đổi `avatar.svg` thành `avatar.jpg` trong `index.html` và `about.html`.
+Sửa xong thì xuất lại vào các trang:
+
+```bash
+yarn export
+```
+
+Lệnh này điền tiêu đề, liên kết, danh sách dự án tĩnh, CV và chữ trên avatar. Phần danh sách dự án lúc mở trang vẫn đọc `data.js` trực tiếp.
+
+Ảnh đại diện mẫu là chữ viết tắt trong `assets/img/avatar.svg`, lấy từ `profile.initials`. Muốn dùng ảnh thật thì đặt `assets/img/avatar.jpg` và đổi `avatar.svg` thành `avatar.jpg` trong `index.html` và `about.html`.
 
 ## CV
 
-`cv.html` là CV in được khổ A4, có tiếng Việt, English và 日本語 (mỗi thứ tiếng một khối `<article>`).
-Nút tải về trỏ tới các file PDF trong `assets/cv/`. Sửa `cv.html` xong thì tạo lại PDF (cần Google Chrome):
+Nội dung CV sửa trong `cv` của `data.js`, rồi chạy lệnh xuất ở trên. Ảnh đặt tại `cv.photo` (mặc định `assets/img/cv-photo.svg`).
+
+Nút tải PDF trỏ tới `assets/cv/<pdfBase>-VI.pdf`, bản EN và JA. Tên file lấy từ `cv.pdfBase`. Sau khi xuất, tạo lại PDF bằng Google Chrome:
 
 ```bash
 sh scripts/build-cv-pdf.sh
 ```
 
+Trên Windows, đặt biến `CHROME` trỏ tới `chrome.exe` trước khi chạy script.
+
 ## Chạy thử trên máy
 
-Không cần cài gì, không có bước build:
+Xem trang không cần cài thêm gì. Yarn chỉ cần khi chạy `yarn export` ở trên:
 
 ```bash
-python3 -m http.server 8765
+python -m http.server 8765
 ```
 
-Mở http://localhost:8765. Thêm `?lang=en` hoặc `?lang=ja` vào link để mở thẳng bằng thứ tiếng đó.
+Mở http://localhost:8765. Thêm `?lang=en` hoặc `?lang=ja` để mở thẳng bằng thứ tiếng đó.
 
 ## Đăng lên
 
-GitHub Pages lấy thẳng nhánh `main`, thư mục gốc. Push là lên.
+GitHub Pages có thể phục vụ thẳng nhánh `main`, thư mục gốc. Push là lên.
+
+## Nguồn
+
+Dự án này là một bản fork từ repo portfolio của Kiên Duy (Nguyễn Duy Kiên), GitHub [@nkocvodoi](https://github.com/nkocvodoi): [github.com/nkocvodoi/portfolio](https://github.com/nkocvodoi/portfolio). Tên, kỹ năng, dự án và CV của tác giả đã được thay bằng nội dung mẫu để dùng làm portfolio cá nhân.
