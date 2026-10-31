@@ -1,11 +1,10 @@
 // Everything the site says lives here. Each text is { vi, en, ja };
 // Vietnamese is the default and the fallback when a translation is missing.
 // Edit this file, then run: yarn export
-// That rewrites the static bits (titles, links, CV, avatar initials) from these values.
+// That rewrites the static bits (titles, links, CV) from these values.
 window.SITE = {
   profile: {
     name: 'Trần Việt Hoàng',
-    initials: 'Quac',
     handle: 'quac17',
     email: 'quac1701@gmail.com',
     github: 'https://github.com/quac17',
@@ -27,7 +26,7 @@ window.SITE = {
     },
     bio: {
       vi: [
-        'Mình là Nguyễn Văn A, một kỹ sư phần mềm. Đoạn này là giới thiệu mẫu — hãy thay bằng vài câu về bạn.',
+        'Mình là Trần Việt Hoàng, một kỹ sư phần mềm. Đoạn này là giới thiệu mẫu — hãy thay bằng vài câu về bạn.',
         'Mình làm sản phẩm web từ giao diện, máy chủ, cơ sở dữ liệu cho tới lúc đưa lên mạng.',
         'Công nghệ mình dùng nhiều nằm ở mục kỹ năng bên cạnh. Hãy sửa danh sách đó cho đúng với bạn.',
       ],

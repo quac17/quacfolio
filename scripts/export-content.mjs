@@ -7,12 +7,16 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
-function loadSite() {
-  const code = fs.readFileSync(path.join(root, 'assets/js/data.js'), 'utf8');
+function loadSiteFrom(file) {
+  const code = fs.readFileSync(file, 'utf8');
   const sandbox = { window: {} };
-  vm.runInNewContext(code, sandbox, { filename: 'assets/js/data.js' });
-  if (!sandbox.window.SITE) throw new Error('assets/js/data.js phải gán window.SITE');
+  vm.runInNewContext(code, sandbox, { filename: file });
+  if (!sandbox.window.SITE) throw new Error(path.basename(file) + ' phải gán window.SITE');
   return sandbox.window.SITE;
+}
+
+function loadSite() {
+  return loadSiteFrom(path.join(root, 'assets/js/data.js'));
 }
 
 function readText(file) {
@@ -259,16 +263,27 @@ function cvUi(site) {
   return '      var PDF_BASE = ' + pdf + ';\n      var UI = ' + ui + ';';
 }
 
-function fillAvatar(site) {
-  const file = path.join(root, 'assets/img/avatar.svg');
-  const { text, nl } = readText(file);
-  const next = text.replace(/(<text\b[^>]*>)[^<]*(<\/text>)/, '$1' + esc(site.profile.initials) + '$2');
-  if (next === text && !text.includes('>' + site.profile.initials + '<')) {
-    throw new Error('Không tìm thấy chữ trong assets/img/avatar.svg');
-  }
-  writeText(file, next, nl);
+function renderCvHtml(template, site) {
+  let text = template.replace(/\r\n/g, '\n');
+  text = fillPage(text, site);
+  text = fillRegion(text, 'cv-articles', ['vi', 'en', 'ja'].map((lang) => cvArticle(site, lang)).join('\n\n'));
+  text = fillJsRegion(text, 'cv-ui', cvUi(site));
+  const fileName = site.cv.pdfBase + '-VI.pdf';
+  text = text.replace(/<a\b[^>]*\bid="dl"[^>]*>/g, (tag) =>
+    tag.replace(/href="[^"]*"/, 'href="assets/cv/' + fileName + '"')
+      .replace(/download="[^"]*"/, 'download="' + fileName + '"'));
+  return text;
 }
 
+function isDirectRun() {
+  const entry = process.argv[1];
+  if (!entry) return false;
+  return path.resolve(entry).toLowerCase() === fileURLToPath(import.meta.url).toLowerCase();
+}
+
+export { loadSiteFrom, renderCvHtml, root };
+
+if (isDirectRun()) {
 const site = loadSite();
 const pages = ['index.html', 'about.html', 'projects.html', 'portfolio.html', '404.html', 'cv.html'];
 
@@ -292,6 +307,4 @@ for (const name of pages) {
   writeText(file, text, nl);
   console.log('đã điền', name);
 }
-
-fillAvatar(site);
-console.log('đã điền assets/img/avatar.svg');
+}

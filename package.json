@@ -2,6 +2,12 @@
   "name": "quacfolio",
   "private": true,
   "scripts": {
-    "export": "node scripts/export-content.mjs"
+    "export": "node scripts/export-content.mjs",
+    "cv_genarate": "node scripts/generate-cv.mjs",
+    "convert_img": "node jpeg-to-svg/convert.mjs"
+  },
+  "dependencies": {
+    "imagetracerjs": "^1.2.6",
+    "jpeg-js": "^0.4.4"
   }
 }

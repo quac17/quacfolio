@@ -84,7 +84,7 @@ h1, h2, h3 { line-height: 1.15; letter-spacing: -0.02em; }
 }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 5.5rem; gap: 1rem; }
 .brand { display: flex; align-items: center; gap: .75rem; font-weight: 600; font-size: 1.5rem; letter-spacing: -0.01em; }
-.brand img { width: 2.25rem; height: 2.25rem; }
+.brand img { width: 2.25rem; height: 2.25rem; border-radius: 46%; object-fit: cover; }
 
 .nav { display: flex; align-items: center; gap: 1.5rem; font-weight: 500; }
 .nav a:hover, .nav a[aria-current="page"] { color: var(--accent); }
