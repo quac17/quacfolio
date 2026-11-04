@@ -222,6 +222,13 @@ section { padding: 4rem 0; }
 .skills h3 { font-family: var(--serif); font-size: 1.5rem; margin: 0 0 1.25rem; }
 .skill-group { margin-bottom: 1.5rem; }
 .skill-group h4 { margin: 0 0 .6rem; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.education { margin-top: 3.5rem; opacity: 1; color: var(--fg); }
+.js .education { opacity: 1; transform: none; }
+.education h3 { font-family: var(--serif); font-size: 1.5rem; margin: 0 0 1.25rem; color: var(--fg); }
+.edu-list { display: grid; gap: 1.75rem; margin: 0; padding: 0; list-style: none; }
+@media (min-width: 900px) { .edu-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; } }
+.edu-school { font-family: var(--serif); font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 600; line-height: 1.25; margin: 0; color: var(--fg); overflow-wrap: anywhere; }
+.edu-meta { margin: .4rem 0 0; font-size: .85rem; line-height: 1.45; color: var(--muted); }
 
 /* ---- contact ---- */
 

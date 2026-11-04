@@ -1,6 +1,6 @@
-# Portfolio mẫu
+# Portfolio
 
-Trang cá nhân tĩnh: trang chủ, danh sách dự án, giới thiệu, portfolio một trang và CV in được. Nội dung đang để sẵn là bản mẫu (tên, liên hệ, kỹ năng, dự án). Hãy thay bằng thông tin của bạn trước khi đăng.
+Trang cá nhân tĩnh của Trần Việt Hoàng: trang chủ, danh sách dự án, giới thiệu, portfolio một trang và CV in được.
 
 Có tiếng Việt (mặc định), English và 日本語. Giao diện sáng và tối.
 
@@ -88,4 +88,4 @@ GitHub Pages có thể phục vụ thẳng nhánh `main`, thư mục gốc. Push
 
 ## Nguồn
 
-Dự án này là một bản fork từ repo portfolio của Kiên Duy (Nguyễn Duy Kiên), GitHub [@nkocvodoi](https://github.com/nkocvodoi): [github.com/nkocvodoi/portfolio](https://github.com/nkocvodoi/portfolio). Tên, kỹ năng, dự án và CV của tác giả đã được thay bằng nội dung mẫu để dùng làm portfolio cá nhân.
+Dự án này là một bản fork từ repo portfolio của Kiên Duy (Nguyễn Duy Kiên), GitHub [@nkocvodoi](https://github.com/nkocvodoi): [github.com/nkocvodoi/portfolio](https://github.com/nkocvodoi/portfolio).

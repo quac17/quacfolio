@@ -12,7 +12,7 @@ repo.
   about page, and the one-page portfolio. Blog posts, tags and search are out:
   the owner has no posts yet.
 - **For:** a personal portfolio template. Vietnamese first, English and Japanese.
-  Page copy, skills and projects in this fork are sample placeholders.
+  Page copy, skills and projects are Trần Việt Hoàng's own content.
 
 ## Sources
 

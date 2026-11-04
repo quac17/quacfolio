@@ -134,6 +134,13 @@
       box.replaceChildren(...P.skills.map((g) =>
         el('div', { class: 'skill-group' }, el('h4', {}, L(g.name)), tags(g.items, 'chips'))));
     },
+
+    education(box) {
+      box.replaceChildren(el('ul', { class: 'edu-list' }, (P.education || []).map((item) =>
+        el('li', {},
+          el('p', { class: 'edu-school' }, L(item.school)),
+          el('p', { class: 'edu-meta' }, item.start + ' – ' + item.end + ' · ' + L(item.major))))));
+    },
   };
 
   const ICONS = {
@@ -142,22 +149,37 @@
 
   function render() {
     applyStrings();
-    document.querySelectorAll('[data-render]').forEach((box) => renderers[box.dataset.render](box));
+    document.querySelectorAll('[data-render]').forEach((box) => {
+      const draw = renderers[box.dataset.render];
+      if (!draw) return;
+      try { draw(box); } catch (error) { console.error(box.dataset.render, error); }
+    });
   }
 
   // ---- scroll reveal (portfolio) -----------------------------------------
 
   let observer;
+  function inView(n) {
+    const r = n.getBoundingClientRect();
+    const h = window.innerHeight || document.documentElement.clientHeight;
+    return r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < h;
+  }
   function reveal(scope) {
-    const items = scope.querySelectorAll('[data-reveal]');
+    const items = [...scope.querySelectorAll('[data-reveal]')].filter((n) => !n.classList.contains('in'));
+    if (!items.length) return;
     if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
       items.forEach((n) => n.classList.add('in'));
       return;
     }
+    // Hash links scroll after this script. Anything already on screen must
+    // show immediately; waiting for the observer leaves it invisible.
+    items.forEach((n) => { if (inView(n)) n.classList.add('in'); });
+    const rest = items.filter((n) => !n.classList.contains('in'));
+    if (!rest.length) return;
     observer ??= new IntersectionObserver((entries) => {
       for (const e of entries) if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); }
-    }, { rootMargin: '0px 0px -10% 0px' });
-    items.forEach((n) => observer.observe(n));
+    }, { rootMargin: '0px' });
+    rest.forEach((n) => observer.observe(n));
   }
 
   // ---- controls ----------------------------------------------------------
@@ -210,7 +232,13 @@
     }
   });
 
-  render();
-  reveal(document);
-  root.classList.remove('i18n-pending');
+  try {
+    render();
+    reveal(document);
+  } finally {
+    root.classList.remove('i18n-pending');
+  }
+  requestAnimationFrame(() => reveal(document));
+  addEventListener('load', () => reveal(document));
+  addEventListener('hashchange', () => requestAnimationFrame(() => reveal(document)));
 })();

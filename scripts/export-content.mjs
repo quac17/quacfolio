@@ -206,6 +206,14 @@ function cvArticle(site, lang) {
     '        <p class="company">' + esc(L(item.school, lang)) + '</p>',
     '      </section>',
   ].join('\n')).join('\n');
+  const awards = (cv.awards || []).map((item) => [
+    '      <section class="job">',
+    '        <div class="job-head">',
+    '          <h3 class="job-title">' + esc(L(item.text, lang)) + '</h3>',
+    '          <span class="date">' + esc(item.date) + '</span>',
+    '        </div>',
+    '      </section>',
+  ].join('\n')).join('\n');
   const nameSub = lang === 'ja' && cv.nameLatin
     ? '\n      <p class="name-sub">' + esc(cv.nameLatin) + '</p>'
     : '';
@@ -252,6 +260,7 @@ ${personal}
 
       <h2>${esc(L(cv.labels.education, lang))}</h2>
 ${education}
+${awards ? `\n      <h2>${esc(L(cv.labels.awards, lang))}</h2>\n${awards}` : ''}
     </main>
 
   </article>`;
