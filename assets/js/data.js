@@ -569,9 +569,9 @@ window.SITE = {
         url: 'https://github.com/quac17/food-moo-duu',
         kind: { vi: '2026', en: '2026', ja: '2026' },
         summary: {
-          vi: 'Là bò, sáng phải rống. Là người, sống phải ráng.',
-          en: 'If be a cow, moo. If be a person, move.',
-          ja: '牛なら、鳴く。人なら、動く。',
+          vi: 'Chat bot AI vui nhộn để hỏi hôm nay ăn gì.',
+          en: 'AI chat bot to ask what to eat today.',
+          ja: '今日の食事を尋ねるAIチャットボット。',
         },
         stack: ['Python', 'Chatbot', 'LLM', 'Semantic Analysis', 'Rule-based', 'Reforcement Learning'],
       },
