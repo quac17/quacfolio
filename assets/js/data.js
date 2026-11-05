@@ -41,7 +41,7 @@ window.SITE = {
         'チームでも一人でも問題ありません。すぐに馴染み、場を盛り上げることもできます。',
       ],
     },
-    working: ['TypeScript', 'Flutter', 'Python', 'Docker', 'PostgreSQL', 'Yarn', 'Harness', 'AI Coding'],
+    working: ['TypeScript', 'Flutter', 'Python', 'Docker', 'PostgreSQL', 'Yarn', 'AI Coding'],
     skills: [
       { name: { vi: 'Ngôn ngữ', en: 'Languages', ja: '言語' }, items: ['Vietnamese', 'English', 'Japanese'] },
       { name: { vi: 'Ngôn ngữ lập trình', en: 'Programming Language', ja: 'プログラミング言語' }, items: ['TypeScript', 'Python', 'JavaScript', 'Dart', 'Go', 'SQL'] },
