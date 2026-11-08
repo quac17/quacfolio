@@ -397,11 +397,22 @@ window.SITE = {
         value: { vi: 'Sử dụng tốt', en: 'Good working proficiency', ja: '良い仕事の能力' },
       },
     ],
+    degree: [
+      {
+        label: { vi: 'IPA FE', en: 'IPA FE', ja: 'IPA FE（基本情報技術者）' },
+        value: { vi: '2020', en: '2020', ja: '2020' },
+      },
+      {
+        label: { vi: 'JLPT N3', en: 'JLPT N3', ja: 'JLPT N3' },
+        value: { vi: '2020', en: '2020', ja: '2020' },
+      },
+    ],
     interests: {
       vi: 'Âm nhạc, bóng đá, podcast, trò chơi điện tử.',
       en: 'Music, football, podcasts, video games.',
       ja: '音楽、サッカー、ポッドキャスト、ゲーム。',
     },
+ 
     summary: {
       vi: 'Mình có khả năng phát triển sản phẩm IT ở nhiều khâu khác nhau từ yêu cầu khách hàng đến sản phẩm hoàn thiện. Mình có kinh nghiệm trong nhiều dự án từ web service đến app mobile. Mục tiêu hướng tới luôn là sản phẩm hoàn thiện, thân thiện với người dùng và đạt hiệu quả cao nhất. ',
       en: 'I have the ability to develop IT products at many different stages from customer requirements to complete products. I can also participate in many projects from web services to mobile apps. The goal always is to create a complete, user-friendly, and high-efficiency product.',
@@ -410,6 +421,7 @@ window.SITE = {
     labels: {
       skills: { vi: 'Kỹ năng', en: 'Skills', ja: 'スキル' },
       languages: { vi: 'Ngoại ngữ', en: 'Languages', ja: '語学' },
+      degree: { vi: 'Bằng cấp và Chứng chỉ', en: 'Degree and Certificate', ja: '学位と資格' },
       interests: { vi: 'Sở thích', en: 'Interests', ja: '趣味' },
       summary: { vi: 'Giới thiệu', en: 'Summary', ja: '職務要約' },
       experience: { vi: 'Kinh nghiệm làm việc', en: 'Work experience', ja: '職務経歴' },
@@ -424,9 +436,9 @@ window.SITE = {
         date: { vi: '10/2023 – Hiện tại', en: '10/2023 – Present', ja: '2023/10 – 現在' },
         company: { vi: 'GMO FinacialSystem Vietnam', en: 'GMO FinacialSystem Vietnam', ja: 'GMO FinacialSystem Vietnam' },
         note: {
-          vi: 'Đảm nhiệm vị trí fullstack developer, phát triển sản phẩm IT ở nhiều dự án và role khác nhau',
-          en: 'Responsible for the fullstack developer position, developing IT products in many projects and different roles',
-          ja: 'フルスタック開発者の立場で、IT製品を多くのプロジェクトで開発し、異なるロールを担当します',
+          vi: 'Fullstack developer, phát triển sản phẩm IT ở nhiều dự án và role khác nhau',
+          en: 'Fullstack developer, developing IT products in many projects and different roles',
+          ja: 'フルスタック開発者、IT製品を多くのプロジェクトで開発し、異なるロールを担当します',
         },
         projects: [
           {
@@ -583,33 +595,21 @@ window.SITE = {
         school: { vi: 'Viện Quản trị & Công nghệ FSB', en: 'FPT School of Business & Technology', ja: 'FPT ビジネス & テクノロジー インスティテュート' },
       },
       {
-        title: { vi: 'Công nghệ thông tin (HEDSPI)', en: 'Information technology (HEDSPI)', ja: '情報技術科（HEDSPI）' },
+        title: { vi: 'Công nghệ thông tin Việt Nhật (HEDSPI)', en: 'Higher Education Development Support Project on ICT (HEDSPI)', ja: 'ベトナム・日本ITエンジニア育成プログラム（HEDSPI）' },
         date: { vi: '9/2016 – 9/2021', en: '9/2016 – 9/2021', ja: '2016/09 – 2021/09' },
         school: { vi: 'Đại học Bách Khoa Hà Nội', en: 'Hanoi University of Science and Technology', ja: 'ハノイ工科大学' },
       },
       {
         title: { vi: 'Chuyên Tin', en: 'Specialized in Information Technology', ja: '情報技術専攻' },
         date: { vi: '9/2013 – 6/2016', en: '9/2013 – 6/2016', ja: '2013/09 – 2016/06' },
-        school: { vi: 'Trung học chuyên Lê Hồng Phong Nam Định', en: 'Lê Hồng Phong High School for the Gifted students in Nam Định', ja: '高専 ル・ホン・フォン 南定' },
+        school: { vi: 'THPT chuyên Lê Hồng Phong Nam Định', en: 'Lê Hồng Phong High School for the Gifted students in Nam Định', ja: '高専 ル・ホン・フォン 南定' },
       },
     ],
     awards: [
       {
-        date: '2020',
-        text: { vi: 'IPA FE', en: 'IPA FE', ja: 'IPA FE（基本情報技術者）' },
-      },
-      {
-        date: '2020',
-        text: {
-          vi: 'JLPT N3',
-          en: 'JLPT N3',
-          ja: 'JLPT N3',
-        },
-      },
-      {
         date: '2015, 2016',
         text: {
-          vi: 'Hội thi học sinh giỏi tỉnh Nam Định — huy chương bạc môn Tin',
+          vi: 'Hội thi HSG cấp tỉnh Nam Định — giải nhì môn Tin học',
           en: 'Excellent students contest, Nam Dinh province — silver medal in the Information Technology subject',
           ja: 'ナムディン省優秀生徒コンテスト — 銀メダル 情報技術科目',
         },
@@ -625,7 +625,7 @@ window.SITE = {
       {
         date: '2014',
         text: {
-          vi: 'Hội thi học sinh giỏi khu vực đồng bằng Bắc Bộ — huy chương đồng môn Tin',
+          vi: 'Hội thi HSG chuyên khu vực Duyên hải đồng bằng Bắc Bộ — huy chương đồng môn Tin',
           en: 'Excellent students contest in the northern delta region — bronze medal in the Information Technology subject',
           ja: '北部デルタ地域の優秀生徒コンテスト — 銅メダル 情報技術科目',
         },

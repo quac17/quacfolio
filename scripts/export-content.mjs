@@ -178,6 +178,8 @@ function cvArticle(site, lang) {
     '      <div class="skill"><b>' + esc(L(group.name, lang)) + '</b><span>' + esc(group.items.join(', ')) + '</span></div>').join('\n');
   const languages = cv.languages.map((item) =>
     '      <p><b>' + esc(L(item.label, lang)) + '</b> ' + esc(L(item.value, lang)) + '</p>').join('\n');
+  const degrees = (cv.degree || []).map((item) =>
+    '      <p><b>' + esc(L(item.label, lang)) + '</b> ' + esc(L(item.value, lang)) + '</p>').join('\n');
   const jobs = cv.experience.map((job) => {
     const duties = L(job.duties, lang) || [];
     const projects = (job.projects || []).map((p) => projectBlock(p, lang)).join('\n');
@@ -238,6 +240,7 @@ function cvArticle(site, lang) {
 
       <h2>${esc(L(cv.labels.skills, lang))}</h2>
 ${skills}
+${degrees ? `\n      <h2>${esc(L(cv.labels.degree, lang))}</h2>\n${degrees}` : ''}
 
       <h2>${esc(L(cv.labels.languages, lang))}</h2>
 ${languages}
